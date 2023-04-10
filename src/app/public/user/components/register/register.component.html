@@ -1,0 +1,74 @@
+<div class="modal modal--register">
+  <div class="card card--register">
+    <div>
+      <h2 class="title">Create account</h2>
+    </div>
+    <div>
+      <div class="container name--container">
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Elon" [formControl]="name" required />
+          <mat-error *ngIf="name.invalid">{{ getErrorName() }}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="container first-surname--container">
+        <mat-form-field appearance="fill">
+          <mat-label>First surname</mat-label>
+          <input
+            matInput
+            placeholder="Musk"
+            [formControl]="firstSurname"
+            required
+          />
+          <mat-error *ngIf="firstSurname.invalid">{{
+            getErrorFirstSurname()
+          }}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="container second-surname--container">
+        <mat-form-field appearance="fill">
+          <mat-label>Second surname</mat-label>
+          <input matInput [formControl]="secondSurname" />
+        </mat-form-field>
+      </div>
+      <div class="container email--container">
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            placeholder="cherry@trade.com"
+            [formControl]="email"
+            required
+          />
+          <mat-error *ngIf="email.invalid">{{ getErrorEmail() }}</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="container password--container">
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+          required
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  </div>
+  <h2 *ngIf="errorMsg">{{ errorMsg }}</h2>
+  <mat-card-actions class="button button--register">
+    <div class="container buttton--container">
+      <button mat-raised-button color="accent">
+        <p class="button button--accept">Register</p>
+      </button>
+    </div>
+  </mat-card-actions>
+  <h4 class="text text--link">¿Already have an account?</h4>
+  <button class="button button--login" (click)="openLogin()">Sign in</button>
+</div>

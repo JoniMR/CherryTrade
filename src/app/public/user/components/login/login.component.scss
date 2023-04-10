@@ -1,0 +1,86 @@
+$gradient: linear-gradient(
+  58.77deg,
+  #f46565 -11.26%,
+  #e83e46 21.08%,
+  #7a0000 117.17%
+);
+
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: #e83e46;
+}
+
+button {
+  background-image: $gradient;
+  width: 90%;
+  margin-left: 5% !important;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.modal--login {
+  width: 30vw;
+  margin-top: 0% !important;
+}
+
+.button--accept {
+  color: white;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.button--register {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  color: #e83e46;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mat-form-field {
+  width: 30vw;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+.text--forgot-password {
+  margin-left: 60%;
+}
+
+.text--link {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .modal--login {
+    width: 50vw;
+  }
+
+  button {
+    margin-left: 5% !important;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  .mat-form-field {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .button--register {
+    margin-left: 20%;
+  }
+
+  .text--link {
+    margin-top: 5%;
+  }
+}

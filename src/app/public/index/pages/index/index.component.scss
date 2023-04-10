@@ -1,0 +1,120 @@
+$gradient: linear-gradient(
+  58.77deg,
+  #f46565 -11.26%,
+  #e83e46 21.08%,
+  #7a0000 117.17%
+);
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  justify-items: center;
+  align-items: center;
+  height: 90vh;
+  width: 100%;
+  background: url(../../../../../assets/img/wall-landing.jpg) center center
+    no-repeat fixed;
+  background-size: cover;
+}
+
+.subcontainer--left {
+  grid-area: 1 / 1 / 2 / 2;
+  justify-items: center;
+  align-items: center;
+  display: grid;
+}
+
+.subcontainer--right {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.subcontainer--span {
+  width: 80%;
+}
+
+.mat-subheading-2,
+.mat-display-2 {
+  color: #fff;
+}
+
+.mat-subheading-2 {
+  font-style: italic;
+}
+
+.mat-display-2 {
+  text-align: center;
+  margin: 0;
+}
+
+hr {
+    height: 8px;
+    background-color: red;
+    background-image: $gradient;
+    border: 0;
+    height: 1px;
+    margin: 20px;
+  }
+
+.button--register {
+  color: #fff;
+  background: $gradient;
+  margin-top: 30px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.logo {
+  height: 40vh;
+  animation: cherrybeat 1s infinite;
+}
+
+.highlighted {
+  color: #E83E46;
+}
+
+@keyframes cherrybeat {
+  0% {
+    transform: scale(0.95);
+  }
+  20% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(0.95);
+  }
+  60% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(0.95);
+  }
+}

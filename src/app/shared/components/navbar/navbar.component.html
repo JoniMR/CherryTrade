@@ -1,0 +1,26 @@
+<div class="container navbar--container">
+  <a
+    href="#"
+    routerLink="/"
+    routerLinkActive="active"
+    class="list--button-container"
+  >
+    <div class="logo logo--container">
+      <img class="logo logo--svg-show"
+      src="../../../../assets/svg/Imagotipo-completo.svg" alt= />
+      <img
+        class="logo logo--svg-hidden"
+        src="../../../assets/svg/Isotipo.svg"
+        alt=""
+      />
+    </div>
+  </a>
+  <div class="container button--container">
+    <button class="button button--login" mat-button (click)="openLogin()">
+      <span class="mat-button">LOGIN</span>
+    </button>
+    <button class="button button--register" mat-button>
+      <span class="mat-button" (click)="openRegister()">REGISTER</span>
+    </button>
+  </div>
+</div>

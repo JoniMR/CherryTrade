@@ -1,0 +1,101 @@
+$gradient : linear-gradient(58.77deg, #F46565 -11.26%, #E83E46 21.08%, #7A0000 117.17%);
+
+.navbar--container {
+  padding-left: 10vw;
+  padding-right: 10vw;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  height: 10vh;
+  grid-template-columns: 2fr 10fr;
+}
+
+.logo {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.logo--container {
+  justify-self: end;
+}
+
+.logo--svg-show {
+  height: 8vh;
+  &:hover {
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.1);
+  }
+  &:not(:hover) {
+    transition: all 0.5s ease-in-out;
+    transform: scale(1);
+  }
+}
+
+.logo--svg-hidden {
+  display: none;
+  height: 8vh;
+  &:hover {
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.1);
+  }
+  &:not(:hover) {
+    transition: all 0.5s ease-in-out;
+    transform: scale(1);
+  }
+}
+
+.button {
+  margin: 5px;
+}
+
+.button--container {
+  display: grid;
+  justify-self: end;
+  grid-template-columns: 1fr 1fr;
+}
+
+.button--login {
+  color: #E83E46;
+  border: 2px solid #E83E46;
+}
+
+.button--register {
+  color: #FFF;
+  background: $gradient;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .logo--svg-show {
+    display: none;
+  }
+
+  .logo--svg-hidden {
+    display: inline;
+  }
+}

@@ -1,0 +1,54 @@
+<div class="modal modal--login">
+  <div class="card card--login">
+    <div>
+      <h2 class="title">Sign in</h2>
+    </div>
+    <div>
+      <div class="container email--container">
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            placeholder="cherry@trade.com"
+            [formControl]="email"
+            required
+          />
+          <mat-error *ngIf="email.invalid">{{ getErrorEmail() }}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="container password--container">
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            [formControl]="password"
+            required
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div class="text text--forgot-password">
+        <a href="#">¿Forgot your password?</a>
+      </div>
+    </div>
+    <h2 *ngIf="errorMsg">{{ errorMsg }}</h2>
+    <mat-card-actions class="button button--singin">
+      <div class="container buttton--container">
+        <button mat-raised-button color="accent">
+          <p class="button button--accept">Continue</p>
+        </button>
+      </div>
+    </mat-card-actions>
+    <h4 class="text text--link">¿New to Cherry Trade?</h4>
+    <button class="button button--register" (click)="openRegister()">Register</button>
+  </div>
+</div>
