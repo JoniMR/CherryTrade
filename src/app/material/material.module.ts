@@ -19,6 +19,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -45,6 +48,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatDialogModule,
     MatCardModule,
     MatGridListModule,
+    MatSidenavModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [
     CommonModule,
@@ -69,6 +75,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatDialogModule,
     MatCardModule,
     MatGridListModule,
+    MatSidenavModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
 })
 export class MaterialModule {}

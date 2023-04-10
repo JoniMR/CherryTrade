@@ -3,21 +3,25 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { ListComponent } from './components/list/list.component';
-import { FilterComponent } from './components/filter/filter.component';
 import { SearchComponent } from './components/search/search.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-
+import { MaterialModule } from 'src/app/material/material.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
     ListComponent,
-    FilterComponent,
     SearchComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    MaterialModule,
+    SharedModule
+  ],
+  exports: [
+    DashboardComponent
   ]
 })
 export class DashboardModule { }

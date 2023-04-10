@@ -31,6 +31,18 @@
           <input matInput [formControl]="secondSurname" />
         </mat-form-field>
       </div>
+      <div class="container birthdate--container">
+        <mat-form-field appearance="fill">
+          <mat-label>Birth date</mat-label>
+          <input matInput placeholder="MM/DD/YYYY" [matDatepicker]="picker" [formControl]="birthdate" required/>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="birthdate.invalid">{{ getErrorBirthDate() }}</mat-error>
+        </mat-form-field>
+      </div>
       <div class="container email--container">
         <mat-form-field appearance="fill">
           <mat-label>Email</mat-label>
@@ -69,6 +81,6 @@
       </button>
     </div>
   </mat-card-actions>
-  <h4 class="text text--link">¿Already have an account?</h4>
+  <h4 class="text text--link">Already have an account</h4>
   <button class="button button--login" (click)="openLogin()">Sign in</button>
 </div>

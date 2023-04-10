@@ -12,6 +12,7 @@ export class RegisterComponent implements OnInit {
   name: FormControl;
   firstSurname: FormControl;
   secondSurname: FormControl;
+  birthdate: FormControl;
   email: FormControl;
   password: FormControl;
   errorMsg: string;
@@ -21,6 +22,7 @@ export class RegisterComponent implements OnInit {
     this.name = new FormControl('', [Validators.required]);
     this.firstSurname = new FormControl('', [Validators.required]);
     this.secondSurname = new FormControl('');
+    this.birthdate = new FormControl('', [Validators.required, Validators.required]);
     this.email = new FormControl('', [Validators.required, Validators.email]);
     this.password = new FormControl('', [Validators.required]);
   }
@@ -37,14 +39,21 @@ export class RegisterComponent implements OnInit {
     if (this.name.hasError('required')) {
       return 'Enter your name';
     }
-    return this.email.hasError('name') ? 'Name not valid' : '';
+    return this.name.hasError('name') ? 'Name not valid' : '';
   }
 
   getErrorFirstSurname() {
-    if (this.name.hasError('required')) {
+    if (this.firstSurname.hasError('required')) {
       return 'Enter your first surname';
     }
-    return this.email.hasError('firstSurname') ? 'First surname not valid' : '';
+    return this.firstSurname.hasError('firstSurname') ? 'First surname not valid' : '';
+  }
+
+  getErrorBirthDate() {
+    if (this.birthdate.hasError('required')) {
+      return 'Enter your birth date';
+    }
+    return this.birthdate.hasError('birthdate') ? 'Birth date not valid' : '';
   }
 
   getErrorEmail() {

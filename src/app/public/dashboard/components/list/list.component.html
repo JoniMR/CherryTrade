@@ -1,1 +1,80 @@
-<p>list works!</p>
+<div class="container">
+  <div class="container filter--container">
+    <mat-form-field class="filters">
+      <mat-label class="mat-caption">Filters</mat-label>
+      <mat-select [formControl]="filtersForm" multiple class="mat-caption">
+        <mat-select-trigger class="mat-caption">
+          {{filtersForm.value?.[0] || ''}}
+          <span
+            class="mat-caption"
+            *ngIf="(filtersForm.value?.length || 0) > 1"
+          >
+            (+{{ (filtersForm.value?.length || 0) - 1 }}
+            {{ filtersForm.value?.length === 2 ? "others" : "others" }})
+          </span>
+        </mat-select-trigger>
+        <mat-option
+          *ngFor="let filter of filters"
+          [value]="filter"
+          class="mat-caption"
+          >{{ filter }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="search">
+      <mat-label class="mat-caption">Search</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Ex. Bitcoin"
+        #input
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="container table--container">
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort class="mat-body-1">
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Coins</th>
+          <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+        </ng-container>
+
+        <!-- Progress Column -->
+        <ng-container matColumnDef="progress">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+          <td mat-cell *matCellDef="let row">{{ row.progress }}%</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+          <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+        </ng-container>
+
+        <!-- Fruit Column -->
+        <ng-container matColumnDef="fruit">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Fruit</th>
+          <td mat-cell *matCellDef="let row">{{ row.fruit }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">
+            No crypto matching the filter "{{ input.value }}"
+          </td>
+        </tr>
+      </table>
+
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page of users"
+      ></mat-paginator>
+    </div>
+  </div>
+</div>
