@@ -17,10 +17,10 @@
           <input
             matInput
             placeholder="Musk"
-            [formControl]="firstSurname"
+            [formControl]="surname1"
             required
           />
-          <mat-error *ngIf="firstSurname.invalid">{{
+          <mat-error *ngIf="surname1.invalid">{{
             getErrorFirstSurname()
           }}</mat-error>
         </mat-form-field>
@@ -28,19 +28,27 @@
       <div class="container second-surname--container">
         <mat-form-field appearance="fill">
           <mat-label>Second surname</mat-label>
-          <input matInput [formControl]="secondSurname" />
+          <input matInput [formControl]="surname2" />
         </mat-form-field>
       </div>
       <div class="container birthdate--container">
         <mat-form-field appearance="fill">
           <mat-label>Birth date</mat-label>
-          <input matInput placeholder="MM/DD/YYYY" [matDatepicker]="picker" [formControl]="birthdate" required/>
+          <input
+            matInput
+            placeholder="MM/DD/YYYY"
+            [matDatepicker]="picker"
+            [formControl]="birthdate"
+            required
+          />
           <mat-datepicker-toggle
             matIconSuffix
             [for]="picker"
           ></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
-          <mat-error *ngIf="birthdate.invalid">{{ getErrorBirthDate() }}</mat-error>
+          <mat-error *ngIf="birthdate.invalid">{{
+            getErrorBirthDate()
+          }}</mat-error>
         </mat-form-field>
       </div>
       <div class="container email--container">
@@ -59,7 +67,11 @@
     <div class="container password--container">
       <mat-form-field appearance="fill">
         <mat-label>Password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" />
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          [formControl]="password"
+        />
         <button
           mat-icon-button
           matSuffix
@@ -74,7 +86,7 @@
     </div>
   </div>
   <h2 *ngIf="errorMsg">{{ errorMsg }}</h2>
-  <mat-card-actions class="button button--register">
+  <mat-card-actions class="button button--register" (click)="register()">
     <div class="container buttton--container">
       <button mat-raised-button color="accent">
         <p class="button button--accept">Register</p>

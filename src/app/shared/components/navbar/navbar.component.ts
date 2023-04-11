@@ -32,4 +32,14 @@ export class NavbarComponent implements OnInit {
   openRegister() {
     this.dialog.open(RegisterComponent);
   }
+
+  navigateToDashboard() {
+    this.router.navigate(['/dashboard']);
+}
+
+  logout() {
+    sessionStorage.removeItem("user");
+    this.login = false;
+    this.router.navigate(['']);
+  }
 }

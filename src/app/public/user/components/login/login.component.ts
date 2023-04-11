@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { RegisterComponent } from '../register/register.component';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    public dialogRef: MatDialogRef<LoginComponent>
+    public dialogRef: MatDialogRef<LoginComponent>,
+    private loginService: LoginService
   ) {
     this.email = new FormControl('', [Validators.required, Validators.email]);
     this.password = new FormControl('', [Validators.required]);
@@ -40,5 +42,22 @@ export class LoginComponent implements OnInit {
   openRegister() {
     this.dialog.open(RegisterComponent);
     this.dialogRef.close();
+  }
+
+  login() {
+    console.log(this.email.value + ', ' + this.password.value);
+    this.loginService
+      .getUserbyEmailAndPassword(this.email.value, this.password.value)
+      .subscribe(
+        (data) => {
+          if (data.user_id) {
+            sessionStorage.setItem('user', JSON.stringify(data));
+            this.dialogRef.close(true);
+          }
+        },
+        (err) => {
+          this.handleError(err);
+        }
+      );
   }
 }

@@ -16,11 +16,17 @@
     </div>
   </a>
   <div class="container button--container">
-    <button class="button button--login" mat-button (click)="openLogin()">
+    <button class="button button--login" mat-button (click)="openLogin()" *ngIf="!login">
       <span class="mat-button">LOGIN</span>
     </button>
-    <button class="button button--register" mat-button>
-      <span class="mat-button" (click)="openRegister()">REGISTER</span>
+    <button class="button button--login" mat-button (click)="navigateToDashboard()" *ngIf="login">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <button class="button button--register" mat-button (click)="openRegister()" *ngIf="!login">
+      <span class="mat-button" >REGISTER</span>
+    </button>
+    <button class="button button--register" mat-button (click)="logout()" *ngIf="login">
+      <mat-icon>exit_to_app</mat-icon>
     </button>
   </div>
 </div>
