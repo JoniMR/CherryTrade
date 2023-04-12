@@ -7,6 +7,7 @@ import { IndexModule } from './public/index/index.module';
 import { PublicModule } from './public/public.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardModule } from './private/dashboard/dashboard.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DashboardModule } from './private/dashboard/dashboard.module';
     IndexModule,
     PublicModule,
     BrowserAnimationsModule,
-    DashboardModule
+    DashboardModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

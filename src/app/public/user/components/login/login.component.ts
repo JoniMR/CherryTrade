@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (data) => {
           if (data.user_id) {
+            console.log(data);
             sessionStorage.setItem('user', JSON.stringify(data));
             this.dialogRef.close(true);
           }
