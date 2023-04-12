@@ -15,7 +15,7 @@ import { TableService } from '../../services/table.service';
 export class ListComponent implements OnInit {
   displayedColumns: string[] = [
     'icon',
-    'name',
+    'crypto_name',
     'asset',
     'value',
     'stock',

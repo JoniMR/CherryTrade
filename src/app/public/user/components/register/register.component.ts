@@ -10,7 +10,7 @@ import { RegisterService } from '../../services/register.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  name: FormControl;
+  username: FormControl;
   surname1: FormControl;
   surname2: FormControl;
   birthdate: FormControl;
@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
   hide = true;
 
   constructor(public dialog: MatDialog, public dialogRef: MatDialogRef<RegisterComponent>, private registerService : RegisterService) {
-    this.name = new FormControl('', [Validators.required]);
+    this.username = new FormControl('', [Validators.required]);
     this.surname1 = new FormControl('', [Validators.required]);
     this.surname2 = new FormControl('');
     this.birthdate = new FormControl('', [Validators.required, Validators.required]);
@@ -37,10 +37,10 @@ export class RegisterComponent implements OnInit {
   }
 
   getErrorName() {
-    if (this.name.hasError('required')) {
+    if (this.username.hasError('required')) {
       return 'Enter your name';
     }
-    return this.name.hasError('name') ? 'Name not valid' : '';
+    return this.username.hasError('username') ? 'Name not valid' : '';
   }
 
   getErrorFirstSurname() {
@@ -70,9 +70,9 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
-    console.log(this.name.value + ", " + this.surname1.value + ', ' + this.surname2.value + ', ' + this.birthdate.value + ', ' + this.email.value + ', ' + this.password.value);
+    console.log(this.username.value + ", " + this.surname1.value + ', ' + this.surname2.value + ', ' + this.birthdate.value + ', ' + this.email.value + ', ' + this.password.value);
     this.registerService
-      .addUser(this.name.value, this.surname1.value, this.surname2.value, this.birthdate.value, this.email.value, this.password.value)
+      .addUser(this.username.value, this.surname1.value, this.surname2.value, this.birthdate.value, this.email.value, this.password.value)
       .subscribe(
         (data) => {
             console.log("Usuario creado: " + this.email.value)

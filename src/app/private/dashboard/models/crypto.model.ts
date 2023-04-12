@@ -1,6 +1,6 @@
 export interface CryptoInterface {
   crypto_id: string;
-  name: string;
+  crypto_name: string;
   value: number;
   icon?: string;
   asset: string;
