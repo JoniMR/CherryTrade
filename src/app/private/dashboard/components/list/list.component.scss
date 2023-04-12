@@ -49,7 +49,39 @@ th {background-color: #F8F7FF;}
 tr:nth-child(even) {background: #F8F7FF}
 tr:nth-child(odd) {background: #FFF}
 
-img {
+.img--container, a {
+  height: 100%;
+  display: flex;
+  align-content: center;
+}
+
+.img--cryptos {
   height: 30px;
   width: 30px;
+}
+
+.column--icon, .column-asset {
+  width: 10%;
+}
+
+.column--crypto, .column--value, .column--stock, .column--buysell {
+  width: 20%;
+}
+
+.button--buy, .button--sell {
+  color: #00ff3c;
+  background-color: transparent;
+  margin-right: 1%;
+  &:hover {
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.1);
+  }
+  &:not(:hover) {
+    transition: all 0.5s ease-in-out;
+    transform: scale(1);
+  }
+}
+
+.button--sell {
+  color: #E83E46;
 }

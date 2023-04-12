@@ -36,39 +36,97 @@
   <div class="container table--container">
     <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource" matSort class="mat-body-1">
-
         <ng-container matColumnDef="icon">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Icon</th>
-          <td mat-cell *matCellDef="let row"><img src="{{ row.icon }}" alt=""></td>
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            class="column--icon"
+          >
+            Icon
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <div class="img--container"><a href="https://www.blockchain.com/explorer/assets/{{ row.asset }}"><img class="img--cryptos" src="{{ row.icon }}" alt="" /></a></div>
+          </td>
         </ng-container>
 
         <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            class="column--crypto"
+          >
+            Name
+          </th>
           <td mat-cell *matCellDef="let row">{{ row.name }}</td>
         </ng-container>
 
         <ng-container matColumnDef="asset">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Asset</th>
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            class="column--asset"
+          >
+            Asset
+          </th>
           <td mat-cell *matCellDef="let row">{{ row.asset }}</td>
         </ng-container>
 
         <ng-container matColumnDef="value">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Value</th>
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            class="column--value"
+          >
+            Value
+          </th>
           <td mat-cell *matCellDef="let row">{{ row.value }} $</td>
+        </ng-container>
+
+        <ng-container matColumnDef="stock">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            class="column--stock"
+          >
+            Stock
+          </th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.stock }} {{ row.asset }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="buysell">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            class="column--buysell"
+          >
+            Buy / Sell
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <mat-icon class="button--buy">add_circle_outline</mat-icon>
+            <mat-icon class="button--sell">remove_circle_outline</mat-icon>
+          </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
         <tr class="mat-row" *matNoDataRow>
-          <td class="mat-cell" colspan="4">
+          <td class="mat-cell" colspan="6">
             No crypto matching the filter "{{ input.value }}"
           </td>
         </tr>
       </table>
 
       <mat-paginator
-        [pageSizeOptions]="[5, 10, 25, 100]"
+        [pageSizeOptions]="[5, 10, 20]"
         aria-label="Select page of cryptos"
       ></mat-paginator>
     </div>

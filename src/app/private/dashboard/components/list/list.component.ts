@@ -18,6 +18,8 @@ export class ListComponent implements OnInit {
     'name',
     'asset',
     'value',
+    'stock',
+    'buysell',
   ];
   dataSource: MatTableDataSource<CryptoInterface>;
   list: CryptoInterface[];
