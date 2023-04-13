@@ -8,6 +8,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { MaterialModule } from 'src/app/material/material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { BuyComponent } from './components/buy/buy.component';
+import { SellComponent } from './components/sell/sell.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +16,13 @@ import { BuyComponent } from './components/buy/buy.component';
     SearchComponent,
     DashboardComponent,
     BuyComponent,
+    SellComponent,
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     MaterialModule,
-    SharedModule
+    SharedModule,
   ],
   exports: [
     DashboardComponent

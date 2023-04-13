@@ -5,11 +5,11 @@ import { TableService } from '../../services/table.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-buy',
-  templateUrl: './buy.component.html',
-  styleUrls: ['./buy.component.scss'],
+  selector: 'app-sell',
+  templateUrl: './sell.component.html',
+  styleUrls: ['./sell.component.scss']
 })
-export class BuyComponent implements OnInit {
+export class SellComponent implements OnInit {
   quantity: FormControl;
   errorMsg: string;
 
@@ -40,7 +40,7 @@ export class BuyComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    public dialogRef: MatDialogRef<BuyComponent>,
+    public dialogRef: MatDialogRef<SellComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.quantity = new FormControl('', [Validators.required]);
@@ -54,7 +54,7 @@ export class BuyComponent implements OnInit {
 
   ngOnInit(): void {
     this.quantity.valueChanges.subscribe(() => {
-      this.calculateBuy();
+      this.calculateSell();
     });
   }
 
@@ -71,14 +71,15 @@ export class BuyComponent implements OnInit {
     return this.quantity.hasError('quantity') ? 'Quantity not valid' : '';
   }
 
-  calculateBuy() {
+  calculateSell() {
     const quantityValue = this.quantity.value;
     if (!isNaN(quantityValue) && quantityValue > 0) {
       this.cryptoQuantity = quantityValue;
       this.total = this.cryptoQuantity * this.value;
       this.total = Math.round(this.total * 100) / 100
       this.calc = true;
-      this.finalCalc = this.funds - this.total;
+      this.finalCalc = Number(this.total) + Number(this.funds);
+      console.log(typeof(this.finalCalc));
       this.finalCalc = Math.round(this.finalCalc * 100) / 100
     }
   }

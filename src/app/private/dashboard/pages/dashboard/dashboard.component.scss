@@ -19,7 +19,7 @@ $gradient: linear-gradient(
 
 .container--dashboard,
 mat-drawer-container {
-  height: 100%;
+  height: 90vh;
 }
 
 .container--sidenav {
@@ -29,7 +29,7 @@ mat-drawer-container {
 }
 
 .container--user {
-  width: 60%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -52,6 +52,8 @@ mat-drawer-container {
   border-radius: 100%;
   margin-top: 5%;
   margin-bottom: 5%;
+  object-fit: cover;
+  border: 2px solid #FFF;
 }
 
 .button--edit {
@@ -82,3 +84,41 @@ mat-drawer-container {
   margin-left: 5%;
 }
 
+table {
+  width: 100%;
+}
+
+th {
+  text-align: left;
+}
+
+td {
+  text-align: right;
+}
+
+mat-divider {
+  padding: 100%;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 10px;
+}
+
+.img-sidenav {
+  height: 30px;
+  width: 30px;
+}
+
+.img-sidenav-container {
+  justify-self: start;
+  margin-top: 30px;
+}
+
+mat-spinner {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  background-color: rgba(255, 255, 255, 0.5);
+}

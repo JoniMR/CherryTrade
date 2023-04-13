@@ -1,9 +1,9 @@
 <div class="container container--dashboard">
   <mat-drawer-container>
     <div class="container container--trade">
-      <button type="button" mat-button (click)="drawer.toggle()">
-        Abrir sidenav
-      </button>
+      <div class="img-sidenav-container">
+        <img class="img-sidenav" src="../../../../../assets/img/sidenav.png" alt="" (click)="drawer.toggle()"/>
+      </div>
       <div class="title"><h1 class="mat-headline-1">TRADE</h1></div>
       <div class="container container--list">
         <app-list></app-list>
@@ -12,24 +12,46 @@
     <mat-drawer #drawer class="sidenav" mode="side">
       <div class="container container--sidenav">
         <h2 class="mat-headline-2">Trader Profile</h2>
-        <img
-          class="img img--profile"
-          src="../../../../../assets/img/user.png"
-          alt=""
-        />
-        <h3 class="mat-headline-2">Elon Musk</h3>
-        <button mat-raised-button class="button button--edit">Edit Profile</button>
+        <img class="img img--profile" src="{{ this.img }}" alt="" />
+        <h3 class="mat-headline-2">{{ this.username }} {{ this.surname1 }}</h3>
+        <button mat-raised-button class="button button--edit">
+          Edit Profile
+        </button>
         <div class="container container--user">
-          <h3 class="mat-headline-2">Account</h3>
-          <h4 class="mat-subheading-2">▸ Money</h4>
-          <h4 class="mat-subheading-2">▸ Assets Value</h4>
-          <h3 class="mat-headline-2">Assets</h3>
-          <h4 class="mat-subheading-2">▸ Bitcoin</h4>
-          <h4 class="mat-subheading-2">▸ Ethereum</h4>
-          <h4 class="mat-subheading-2">▸ Doge</h4>
-          <h4 class="mat-subheading-2">▸ Ripple</h4>
+          <table>
+            <tr>
+              <th class="mat-headline-2">Name:</th>
+              <td class="mat-subheading-2">{{ this.username }}</td>
+            </tr>
+            <mat-divider></mat-divider>
+            <tr>
+              <th class="mat-headline-2">First surname:</th>
+              <td class="mat-subheading-2">{{ this.surname1 }}</td>
+            </tr>
+            <mat-divider></mat-divider>
+            <tr>
+              <th class="mat-headline-2">Second surname:</th>
+              <td class="mat-subheading-2">{{ this.surname2 }}</td>
+            </tr>
+            <mat-divider></mat-divider>
+            <tr>
+              <th class="mat-headline-2">Birth date:</th>
+              <td class="mat-subheading-2">{{ this.birthdate }}</td>
+            </tr>
+            <mat-divider></mat-divider>
+            <tr>
+              <th class="mat-headline-2">Email</th>
+              <td class="mat-subheading-2">{{ this.email }}</td>
+            </tr>
+            <mat-divider></mat-divider>
+            <tr>
+              <th class="mat-headline-2">Funds</th>
+              <td class="mat-subheading-2">{{ this.funds }} $</td>
+            </tr>
+          </table>
         </div>
       </div>
     </mat-drawer>
   </mat-drawer-container>
 </div>
+<mat-spinner *ngIf="showSpinner" clas="spinner_overlay"></mat-spinner>

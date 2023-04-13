@@ -8,6 +8,7 @@ import { CryptoInterface } from '../../models/crypto.model';
 import { TableService } from '../../services/table.service';
 import { BuyComponent } from '../buy/buy.component';
 import { MatDialog } from '@angular/material/dialog';
+import { SellComponent } from '../sell/sell.component';
 
 @Component({
   selector: 'app-list',
@@ -73,14 +74,28 @@ export class ListComponent implements OnInit {
   openBuyModal(row: any) {
     const rowIndex = this.list.indexOf(row);
     this.dialog.open(BuyComponent, {
-      data: { 
+      data: {
         crypto_id: this.list[rowIndex].crypto_id,
         crypto_name: this.list[rowIndex].crypto_name,
         value: this.list[rowIndex].value,
         icon: this.list[rowIndex].icon,
         asset: this.list[rowIndex].asset,
         stock: this.list[rowIndex].stock,
-       },
+      },
+    });
+  }
+
+  openSellModal(row: any) {
+    const rowIndex = this.list.indexOf(row);
+    this.dialog.open(SellComponent, {
+      data: {
+        crypto_id: this.list[rowIndex].crypto_id,
+        crypto_name: this.list[rowIndex].crypto_name,
+        value: this.list[rowIndex].value,
+        icon: this.list[rowIndex].icon,
+        asset: this.list[rowIndex].asset,
+        stock: this.list[rowIndex].stock,
+      },
     });
   }
 }
