@@ -11,15 +11,12 @@ Proyecto creado por Jonathan Martín Rodríguez del 5 de Abril al 13 de Abril de
 ​
 ![Nuevo](imagenes/figma.jpg)
 
-​## Diseño del ERD para el proyecto:
-
+## Diseño del ERD para el proyecto:
 
 ![Nuevo](imagenes/ERD.jpg)
 
+## Implantación de los distintos endpoints del proyecto:
 
-​## Implantación de los distintos endpoints del proyecto:
-
-​
-![Nuevo](imagenes/Endpoints crypto.jpg)
-![Nuevo](imagenes/Endpoints user.jpg)
-![Nuevo](imagenes/Endpoints users_cryptos.jpg)
+![Nuevo](imagenes/Endpoints_crypto.jpg)
+![Nuevo](imagenes/Endpoints_user.jpg)
+![Nuevo](imagenes/Endpoints_users_cryptos.jpg)
