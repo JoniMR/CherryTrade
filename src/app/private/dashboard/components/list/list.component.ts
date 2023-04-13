@@ -6,6 +6,8 @@ import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CryptoInterface } from '../../models/crypto.model';
 import { TableService } from '../../services/table.service';
+import { BuyComponent } from '../buy/buy.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-list',
@@ -27,7 +29,11 @@ export class ListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private router: Router, private tableService: TableService) {}
+  constructor(
+    private router: Router,
+    private tableService: TableService,
+    public dialog: MatDialog
+  ) {}
 
   selectedFilters: string = 'Popular';
 
@@ -62,5 +68,19 @@ export class ListComponent implements OnInit {
   handleError(error: any) {
     if (error.status === 500) {
     }
+  }
+
+  openBuyModal(row: any) {
+    const rowIndex = this.list.indexOf(row);
+    this.dialog.open(BuyComponent, {
+      data: { 
+        crypto_id: this.list[rowIndex].crypto_id,
+        crypto_name: this.list[rowIndex].crypto_name,
+        value: this.list[rowIndex].value,
+        icon: this.list[rowIndex].icon,
+        asset: this.list[rowIndex].asset,
+        stock: this.list[rowIndex].stock,
+       },
+    });
   }
 }

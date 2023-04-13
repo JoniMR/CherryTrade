@@ -1,0 +1,26 @@
+<div class="modal modal--register">
+    <div class="card card--register">
+      <div>
+        <h2 class="title">Exchange <img class="img--cryptos" src="{{ this.icon }}" alt="" /></h2>
+      </div>
+      <div>
+        <div class="container name--container">
+          <mat-form-field appearance="fill">
+            <mat-label>Quantity to buy</mat-label>
+            <input matInput placeholder="Enter a quantity" [formControl]="quantity" required/>
+            <mat-error *ngIf="quantity.invalid">{{ getErrorQuantity() }}</mat-error>
+          </mat-form-field>
+        </div>
+    </div>
+    <h3 *ngIf="calc">You are going to buy: <b>{{this.cryptoQuantity}} {{this.asset}}</b></h3>
+    <h3 *ngIf="calc">With a value of: <b>{{ this.total }} $</b></h3>
+    <h2 *ngIf="errorMsg">{{ errorMsg }}</h2>
+    <mat-card-actions class="button button--register">
+      <div class="container buttton--container">
+        <button mat-raised-button color="accent" *ngIf="calc">
+          <p class="button button--accept">Buy {{ this.crypto_name }}</p>
+        </button>
+      </div>
+    </mat-card-actions>
+  </div>
+  
