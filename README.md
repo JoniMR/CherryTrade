@@ -1,27 +1,25 @@
+
 # CherryTrade
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.18.
+Proyecto creado por Jonathan Martín Rodríguez del 5 de Abril al 13 de Abril de 2023 para la hackathon propuesta por Santander.
 
-## Development server
+## Creación de favicon, isotipo e imagotipos para el proyecto:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+![Nuevo](imagenes/Logos.jpg)
 
-## Code scaffolding
+## Primer planteamiento del dashboard del proyecto:
+​
+![Nuevo](imagenes/figma.jpg)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+​## Diseño del ERD para el proyecto:
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+![Nuevo](imagenes/ERD.jpg)
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+​## Implantación de los distintos endpoints del proyecto:
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+​
+![Nuevo](imagenes/Endpoints crypto.jpg)
+![Nuevo](imagenes/Endpoints user.jpg)
+![Nuevo](imagenes/Endpoints users_cryptos.jpg)
