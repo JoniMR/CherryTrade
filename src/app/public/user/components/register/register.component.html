@@ -72,6 +72,9 @@
           [type]="hide ? 'password' : 'text'"
           [formControl]="password"
         />
+        <mat-error *ngIf="password.invalid">{{
+          getErrorPassword()
+        }}</mat-error>
         <button
           mat-icon-button
           matSuffix

@@ -1,27 +1,5 @@
 <div class="container">
-  <div class="container filter--container">
-    <mat-form-field class="filters">
-      <mat-label class="mat-caption">Filters</mat-label>
-      <mat-select [formControl]="filtersForm" multiple class="mat-caption">
-        <mat-select-trigger class="mat-caption">
-          {{filtersForm.value?.[0] || ''}}
-          <span
-            class="mat-caption"
-            *ngIf="(filtersForm.value?.length || 0) > 1"
-          >
-            (+{{ (filtersForm.value?.length || 0) - 1 }}
-            {{ filtersForm.value?.length === 2 ? "others" : "others" }})
-          </span>
-        </mat-select-trigger>
-        <mat-option
-          *ngFor="let filter of filters"
-          [value]="filter"
-          class="mat-caption"
-          >{{ filter }}</mat-option
-        >
-      </mat-select>
-    </mat-form-field>
-
+  <div>
     <mat-form-field class="search">
       <mat-label class="mat-caption">Search</mat-label>
       <input
@@ -131,4 +109,4 @@
       ></mat-paginator>
     </div>
   </div>
-</div>
+

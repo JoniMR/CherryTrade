@@ -23,9 +23,9 @@ export class RegisterComponent implements OnInit {
     this.username = new FormControl('', [Validators.required]);
     this.surname1 = new FormControl('', [Validators.required]);
     this.surname2 = new FormControl('');
-    this.birthdate = new FormControl('', [Validators.required, Validators.required]);
+    this.birthdate = new FormControl('', [Validators.required]);
     this.email = new FormControl('', [Validators.required, Validators.email]);
-    this.password = new FormControl('', [Validators.required]);
+    this.password = new FormControl('', [Validators.required, Validators.minLength(6)], );
   }
 
   ngOnInit(): void {}
@@ -62,6 +62,13 @@ export class RegisterComponent implements OnInit {
       return 'Enter your email';
     }
     return this.email.hasError('email') ? 'Email address not valid' : '';
+  }
+
+  getErrorPassword() {
+    if (this.password.hasError('required')) {
+      return 'Enter your password';
+    }
+    return 'Password not valid';
   }
 
   openLogin() {

@@ -36,12 +36,6 @@ export class ListComponent implements OnInit {
     public dialog: MatDialog
   ) {}
 
-  selectedFilters: string = 'Popular';
-
-  filtersForm = new FormControl('');
-
-  filters: string[] = ['Popular', 'Stablecoin', 'NFT', 'Metaverse'];
-
   ngOnInit(): void {
     this.tableService.getAllCryptos().subscribe(
       (data) => {
